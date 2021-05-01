@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Heading Row -->
+    <div class="row align-items-center my-3">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/image01.jpg' %}" alt="" >
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">{{ restaurant_top.name }}</h1>
+            <p class="text-muted"><small>{{ restaurant_top.area }} <span>&#183;</span> {{ restaurant_top.cuisine }}</small></p>
+            <br>
+            {% if restaurant_top.live_capacity %}
+                <p class="mb-0">Live Capacity</p>
+                    {% if restaurant_top.live_capacity == '100' %}
+                        <p class="mb-0"><img src="{% static 'images/capacity/100.jpg' %}" class="align-self-center mr-3" alt="..." width="100"></p>
+                    {% elif restaurant_top.live_capacity == '75' %}
+                        <p class="mb-0"><img src="{% static 'images/capacity/75.jpg' %}" class="align-self-center mr-3" alt="..." width="100"></p>
+                    {% elif restaurant_top.live_capacity == '50' %}
+                        <p class="mb-0"><img src="{% static 'images/capacity/50.jpg' %}" class="align-self-center mr-3" alt="..." width="100"></p>
+                    {% elif restaurant_top.live_capacity == '25' %}
+                        <p class="mb-0"><img src="{% static 'images/capacity/25.jpg' %}" class="align-self-center mr-3" alt="..." width="100"></p>
+                    {% elif restaurant_top.live_capacity == '10' %}
+                        <p class="mb-0"><img src="{% static 'images/capacity/10.jpg' %}" class="align-self-center mr-3" alt="..." width="100"></p>
+                    {% endif %}
+                <p class="text-muted">Updated： {{ restaurant_top.updated_at }}</p>
+			{% endif %}
+            <br>
+            {% if restaurant_top %}
+        	    <a class="btn btn-primary" href="{% url 'restaurant:detail' restaurant_top.id %}">More Info</a>
+			{% endif %}
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row mt-5">
+
+        {% for item in restaurant_list %}
+        <!-- /.col-md-4 -->
+        <div class="col-md-3 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="card-title">{{ item.name }}<br>
+                        <small class="text-muted">{{ item.area }} <span>&#183;</span> {{ item.cuisine }}</small>
+                    </p>
+                    <p><small>Live Capacity: {{ item.live_capacity }}%</small></p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'restaurant:detail' item.id %}" class="btn btn-outline-primary btn-sm">More Info</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="btn btn-primary" href="{% url 'restaurant:index' %}">See All</a>
+<!-- /.row -->
+{% endblock %}

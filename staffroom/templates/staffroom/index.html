@@ -1,0 +1,61 @@
+{% extends 'staffroom.html' %}
+
+{% block body %}
+
+<div class="row my-5">
+    <div class="col-xl-9">
+        <div class="card mb-4">
+            <div class="card-header">
+                Restaurant List
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    {% for item in restaurant_list %}
+                        <tr>
+                            <th>{{ item.name }}</th>
+                            <th>
+                                <a href="{% url 'restaurant:detail' item.id %}" class="btn btn-info">Display</a>
+                                <a href="{% url 'staffroom:restaurant:update' item.id %}" class="btn btn-secondary">Edit</a>
+                                <a href="{% url 'staffroom:restaurant:timeslot_lunch' item.id %}" class="btn btn-secondary">Time Slot (Lunch)</a>
+                                <a href="{% url 'staffroom:restaurant:timeslot_dinner' item.id %}" class="btn btn-secondary">Time Slot (Dinner)</a>
+                            </th>
+                         </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-header">
+            Pre-Order
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Restaurant</th>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Content</th>
+                </tr>
+                </thead>
+                {% for item in restaurant_list %}
+                    {% for comment in restaurant.comment_set.all %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ comment.created }}</td>
+                            <td>{{ comment.full_name }}</td>
+                            <td>{{ comment.phone_number }}</td>
+                            <td>{{ comment.email }}</td>
+                            <td>{{ comment.content }}</td>            
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

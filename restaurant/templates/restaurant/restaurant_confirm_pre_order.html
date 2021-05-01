@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row my-3">
+    <div class="col-lg-6">
+        <div class="card alert alert-success" role="alert">
+            <div class="card-body text-center">
+                <ul class="list-unstyled">
+                    {% for comment in restaurant.comment_set.all %}
+                        <li>
+                            {% if forloop.last %}                       
+                                <h4>Thank you {{ comment.full_name }}!</h4>
+                                <br>
+                                <hr>
+                                <h6>Your order is confirmed.</h6>
+                                <p>We've accepted your order, and we're getting it ready. A confirmation email has been sent to {{ comment.email }}.</p> 
+                                <hr>
+                                <h6>Content</h6>
+                                {{ comment.content }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

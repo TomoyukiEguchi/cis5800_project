@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Results</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Restaurant</th>
+            <th>Area</th>
+            <th>Live Capacity</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in search_list %}
+        <tr>
+            <td>
+                <h5>
+                    <a href="{% url 'restaurant:detail' item.id %}" class="text-dark text-decoration-none">{{ item.name }}
+                </h5>
+                    {{ item.cuisine }}
+                    </a>
+            </td>
+            <td>{{ item.area }}</td>
+            <td>
+                {% if item.live_capacity == '100' %}
+                    <p class="mb-0"><img src="{% static 'images/capacity/100.jpg' %}" class="align-self-center mr-3" alt="..." width="85"></p>
+                {% elif item.live_capacity == '75' %}
+                    <p class="mb-0"><img src="{% static 'images/capacity/75.jpg' %}" class="align-self-center mr-3" alt="..." width="85"></p>
+                {% elif item.live_capacity == '50' %}
+                    <p class="mb-0"><img src="{% static 'images/capacity/50.jpg' %}" class="align-self-center mr-3" alt="..." width="85"></p>
+                {% elif item.live_capacity == '25' %}
+                    <p class="mb-0"><img src="{% static 'images/capacity/25.jpg' %}" class="align-self-center mr-3" alt="..." width="85"></p>
+                {% elif item.live_capacity == '10' %}
+                    <p class="mb-0"><img src="{% static 'images/capacity/10.jpg' %}" class="align-self-center mr-3" alt="..." width="85"></p>
+                {% endif %}                    
+            </td>
+            <td>{{ item.updated_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

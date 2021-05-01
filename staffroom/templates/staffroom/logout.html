@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row my-3">
+    <div class="col-lg-6">
+        <div class="card alert alert-primary" role="alert">
+            <div class="card-body">
+                <h4>Logout</h4>
+                <hr>
+                <br>
+                <p>You have successfully logged out.</p>
+                <p>Thank you!</p>
+                <br>
+                <br>
+                <a href="{% url 'staffroom:login' %}" class="btn btn-outline-primary">Login</a>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row my-3">
+    <div class="col-lg-6">
+        <div class="card alert alert-primary" role="alert">
+            <div class="card-body">
+                <h4>Signup</h4>
+                <hr>
+                <br>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.errors }}
+                        <br>
+                    {% endfor %}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Signup</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

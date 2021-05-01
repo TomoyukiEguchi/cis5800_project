@@ -1,0 +1,156 @@
+
+<!-- Large button groups (default and split) -->
+    <!-- <div class="btn-group my-3">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-mdb-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-calendar fa-lg"></i></span> Today
+        </button>
+        <ul class="dropdown-menu"> -->
+            <!-- <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#"></a></li> -->
+        <!-- </ul>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-mdb-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-users fa-lg"></i></span> Guests
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">2 Guests</a></li>
+            <li><a class="dropdown-item" href="#">3 Guests</a></li>
+            <li><a class="dropdown-item" href="#">4 Guests</a></li>
+            <li><a class="dropdown-item" href="#">5+ Guests</a></li>
+        </ul>
+    </div>
+    <br>
+<div class="my-2 week">
+    <span class="text-muted mx-4">Tu</span>
+    <span class="text-muted mx-4">We</span>
+    <span class="text-muted mx-4">Th</span>
+    <span class="text-muted mx-4">Fr</span>
+    <span class="text-muted mx-4">Sa</span>
+    <span class="text-muted mx-4">Su</span>
+    <span class="text-muted mx-4">Mo</span>
+</div>
+<div>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(255, 255, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(35, 130, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        11
+    </button>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(35, 130, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(255, 255, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        12
+    </button>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(35, 130, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(255, 255, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        13
+    </button>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(35, 130, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(255, 255, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        14
+    </button>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(35, 130, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(255, 255, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        15
+    </button>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(35, 130, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(255, 255, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        16
+    </button>
+    <button
+        class="mx-2"
+        type="button"
+        style="color:rgb(35, 130, 255); border-style: solid; border-color:rgb(35, 130, 255); background-color:rgb(255, 255, 255); border-radius: 25px; height: 50px; width: 50px; font-size: 13px;"
+    >
+        17
+    </button>
+</div> -->
+
+
+<div class="timeSlots mt-4">
+    <p class="text-muted">LUNCH</p>
+        {% if object.lunch9 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">9:00 AM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3 mb-1" style="color:rgb(182, 182, 182); ">9:00 AM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.lunch10 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">10:00 AM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3 mb-1" style="color:rgb(182, 182, 182); ">10:00 AM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.lunch11 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">11:00 AM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3 mb-1" style="color:rgb(182, 182, 182); ">11:00 AM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.lunch12 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">12:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3 mb-1" style="color:rgb(182, 182, 182); ">12:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.lunch1 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">1:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3 mb-1" style="color:rgb(182, 182, 182); ">1:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.lunch2 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">2:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3 mb-1" style="color:rgb(182, 182, 182); ">2:00 PM<br>DINING ROOM</span>
+        {% endif %}
+</div>
+<div class="timeSlots mt-5">
+    <p class="text-muted">DINNER</p>
+        {% if object.dinner5 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">5:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3" style="color:rgb(182, 182, 182); ">5:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.dinner6 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">6:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3" style="color:rgb(182, 182, 182); ">6:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.dinner7 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">7:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3" style="color:rgb(182, 182, 182); ">7:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.dinner8 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">8:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3" style="color:rgb(182, 182, 182); ">8:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.dinner9 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">9:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3" style="color:rgb(182, 182, 182); ">9:00 PM<br>DINING ROOM</span>
+        {% endif %}
+        {% if object.dinner10 %}
+            <button type="button" class="btn my-2" style="color:white; background-color:rgb(35, 130, 255);">10:00 PM<br>DINING ROOM</button>
+        {% else %}
+            <span class="badge bg-light px-4 py-3" style="color:rgb(182, 182, 182); ">10:00 PM<br>DINING ROOM</span>
+        {% endif %}
+</div>
+  
+  

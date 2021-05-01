@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row my-3">
+    <div class="col-lg-6">
+        <div class="card alert alert-primary" role="alert">
+            <div class="card-body">
+                <h4>Login</h4>
+                <hr>
+                <br>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.errors }}
+                        <br>
+                    {% endfor %}
+                    
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            
+            <div class="card-footer">
+                <div class="small">Need an account? Create one <a href="{% url 'staffroom:signup' %}">here</a></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
