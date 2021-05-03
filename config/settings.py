@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'phone_field',
     'multi_email_field',
+    'easy_maps',
 
 ]
 

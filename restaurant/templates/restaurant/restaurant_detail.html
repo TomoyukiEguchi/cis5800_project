@@ -58,8 +58,8 @@
         <div id="map" style="height: 200px;"></div>
         <div class="address mt-3">
             <h5>{{ object.name }}</h5>
-            <p class="text-muted mb-0"><small>{{ object.address1 }} {{ object.address2|default_if_none:"" }}</small></p>
-            <p class="text-muted mb-3"><small>{{ object.city }}, {{ object.state }} {{ object.zipcode }}</small></p>
+            <small><p id="address1" class="text-muted mb-0">{{ object.address1 }} {{ object.address2|default_if_none:"" }}</p></small>
+            <small><p id="address2" class="text-muted mb-3">{{ object.city }}, {{ object.state }} {{ object.zipcode }}</p></small>
             {% if object.facebook %}
                 <a href="https://www.facebook.com/{{ object.facebook }}" class="mr-3 text-muted text-dark text-decoration-none" target="_blank" style="font-size:1.5vw"><i class="fab fa-facebook"></i></a>
             {% endif %}
@@ -72,6 +72,11 @@
         </div>
         <br>
     </div>
+
+    <!-- <div class="container">
+        <div id="geometry"></div>
+    </div> -->
+
 </div>
 
 <!-- <div class="row">
@@ -101,19 +106,63 @@
 
 {% block footercontent %}
 <script>
+    // call Geocode
+    // geocode();
+
+    function geocode(){
         
-    function initMap() {
-        var location = {lat: 40.7402, lng: -73.9834};
-        var map = new google.maps.Map(document.getElementById("map"),{
-            zoom: 15,
-            center: location
+        var value = document.getElementById("address1").innerHTML;
+        var value2 = document.getElementById("address2").innerHTML;
+        var location = value + value2;
+
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+            params:{
+                address: location,
+                key:'AIzaSyB_zWyGEwm7N-tO9pwPC5v5xK89RYBXMMI'
+            }
+        })
+        .then(function(response){
+            // Log full response
+            console.log(response);
+
+            // Formatted Address
+            var formattedAddress = response.data.results[0].formatted_address;
+
+            // Address Components
+            var addressComponents = response.data.results[0].address_components;
+
+            // Geometry
+            var lat = response.data.results[0].geometry.location.lat;
+            var lng = response.data.results[0].geometry.location.lng;
+            // var geometryOutput = `
+            //     <ul class="list-group">
+            //         <li class="list-group-item"><strong>Latitude</strong>: ${lat}</li>
+            //         <li class="list-group-item"><strong>Longitude</strong>: ${lng}</li>
+            //     </ul>
+            // `;
+
+            // Output to app
+            // document.getElementById('geometry').innerHTML = geometryOutput;
+
+            var location = {};
+            location['lat'] = lat;
+            location['lng'] = lng;
+            
+            var map = new google.maps.Map(document.getElementById("map"),{
+                zoom: 15,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            
+        })
+        .catch(function(error){
+            console.log(error);
         });
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
+
     }
-    
 </script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_zWyGEwm7N-tO9pwPC5v5xK89RYBXMMI&callback=initMap"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_zWyGEwm7N-tO9pwPC5v5xK89RYBXMMI&callback=geocode"></script>
 {% endblock %} 
