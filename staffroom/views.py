@@ -10,8 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import LoginForm, SignUpForm
 
 from restaurant.models import Restaurant
-from restaurant.forms import RestaurantForm
-from restaurant.forms import TimeSlotForm
+from restaurant.forms import RestaurantForm, TimeSlotForm, SocialMediaForm
 
 
 class StaffroomTemplateView(LoginRequiredMixin, TemplateView):
@@ -72,33 +71,47 @@ class RestaurantUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_invalid(form)
 
 
-class TimeSlotLunchUpdateView(LoginRequiredMixin, UpdateView):
+class TimeSlotUpdateView(LoginRequiredMixin, UpdateView):
     model = Restaurant
     form_class = TimeSlotForm 
-    template_name = 'restaurant/timeslot_lunch_form.html'
+    template_name = 'restaurant/timeslot_form.html'
     success_url = reverse_lazy("staffroom:index")
 
     def form_valid(self, form):
-        messages.success(self.request, "Your time slot settings completed successfully.")
+        messages.success(self.request, "Your information has been successfully updated.")
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, "Your settings for time slots cannot be completed.")
+        messages.error(self.request, "Your information has not been updated.")
         return super().form_invalid(form)
 
 
-class TimeSlotDinnerUpdateView(LoginRequiredMixin, UpdateView):
+# class TimeSlotDinnerUpdateView(LoginRequiredMixin, UpdateView):
+#     model = Restaurant
+#     form_class = TimeSlotForm 
+#     template_name = 'restaurant/timeslot_dinner_form.html'
+#     success_url = reverse_lazy("staffroom:index")
+
+#     def form_valid(self, form):
+#         messages.success(self.request, "Your time slot settings completed successfully.")
+#         return super().form_valid(form)
+
+#     def form_invalid(self, form):
+#         messages.error(self.request, "Your settings for time slots cannot be completed.")
+#         return super().form_invalid(form)
+
+class SocialMediaUpdateView(LoginRequiredMixin, UpdateView):
     model = Restaurant
-    form_class = TimeSlotForm 
-    template_name = 'restaurant/timeslot_dinner_form.html'
+    form_class = SocialMediaForm 
+    template_name = 'restaurant/socialmedia_form.html'
     success_url = reverse_lazy("staffroom:index")
 
     def form_valid(self, form):
-        messages.success(self.request, "Your time slot settings completed successfully.")
+        messages.success(self.request, "Your information has been successfully updated.")
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, "Your settings for time slots cannot be completed.")
+        messages.error(self.request, "Your information has not been updated.")
         return super().form_invalid(form)
 
 

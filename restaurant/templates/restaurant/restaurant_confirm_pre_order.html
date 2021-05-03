@@ -11,13 +11,13 @@
                     {% for comment in restaurant.comment_set.all %}
                         <li>
                             {% if forloop.last %}                       
-                                <h4>Thank you {{ comment.full_name }}!</h4>
+                                <h4>Thank you <bold>{{ comment.full_name }}</bold>!</h4>
                                 <br>
                                 <hr>
-                                <h6>Your order is confirmed.</h6>
-                                <p>We've accepted your order, and we're getting it ready. A confirmation email has been sent to {{ comment.email }}.</p> 
+                                <h6>Your reservation is confirmed.</h6>
+                                <p>We've accepted your order, and we're getting it ready. A confirmation email has been sent to <bold>{{ comment.email }}</bold>.</p> 
                                 <hr>
-                                <h6>Content</h6>
+                                <h6>Optional pre-order notes</h6>
                                 {{ comment.content }}
                             {% endif %}
                         </li>

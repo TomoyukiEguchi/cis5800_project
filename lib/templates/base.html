@@ -203,7 +203,7 @@
 
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h6 class="text-uppercase mb-0">For Restaurants</h6>
+                    <h6 class="text-uppercase">For Restaurants</h6>
                     <br>
                     <ul class="list-unstyled">
                         <li>
@@ -243,21 +243,9 @@
     <!-- <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-    <script>
-        function initMap() {
-            var location = {lat: 40.7402, lng: -73.9834};
-            var map = new google.maps.Map(document.getElementById("map"),{
-                zoom: 15,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-        
-    </script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_zWyGEwm7N-tO9pwPC5v5xK89RYBXMMI&callback=initMap"></script>
+    {% block footercontent %}
+    {% endblock %}
+
 </body>
 
 </html>

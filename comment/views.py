@@ -10,9 +10,10 @@ def comment_create(request):
     email_address = request.POST.get("email")
 
     restaurant_id = request.POST.get("restaurant")
+    guest = request.POST.get("guest")
     content = request.POST.get("content")
 
-    data = {"full_name": full_name, "phone_number": phone_number, "email": email_address, "content": content, "restaurant": restaurant_id}
+    data = {"full_name": full_name, "phone_number": phone_number, "email": email_address, "guest": guest, "content": content, "restaurant": restaurant_id}
 
     form = CommentForm(data=data)
     if form.is_valid():

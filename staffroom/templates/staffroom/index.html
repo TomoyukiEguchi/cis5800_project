@@ -16,8 +16,8 @@
                             <th>
                                 <a href="{% url 'restaurant:detail' item.id %}" class="btn btn-info">Display</a>
                                 <a href="{% url 'staffroom:restaurant:update' item.id %}" class="btn btn-secondary">Edit</a>
-                                <a href="{% url 'staffroom:restaurant:timeslot_lunch' item.id %}" class="btn btn-secondary">Time Slot (Lunch)</a>
-                                <a href="{% url 'staffroom:restaurant:timeslot_dinner' item.id %}" class="btn btn-secondary">Time Slot (Dinner)</a>
+                                <a href="{% url 'staffroom:restaurant:social' item.id %}" class="btn btn-secondary">Social Media</a>
+                                <a href="{% url 'staffroom:restaurant:timeslot' item.id %}" class="btn btn-secondary">Live Capacity</a>
                             </th>
                          </tr>
                     {% endfor %}

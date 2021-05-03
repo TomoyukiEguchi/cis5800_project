@@ -50,6 +50,10 @@ class Restaurant(models.Model):
     state = models.CharField(max_length=50, blank=True, null=True, choices=state)
     zipcode = models.CharField(max_length=50, blank=True, null=True)
 
+    facebook = models.CharField(max_length=50, blank=True, null=True)
+    instagram = models.CharField(max_length=50, blank=True, null=True)
+    twitter = models.CharField(max_length=50, blank=True, null=True)
+
     lunch9 = models.CharField(max_length=50, blank=True, null=True, choices=status)
     lunch10 = models.CharField(max_length=50, blank=True, null=True, choices=status)
     lunch11 = models.CharField(max_length=50, blank=True, null=True, choices=status)
