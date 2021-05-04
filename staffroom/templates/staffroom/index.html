@@ -38,17 +38,19 @@
                     <th>Customer</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Content</th>
+                    <th>Guest</th>
+                    <th>Pre-order notes</th>
                 </tr>
                 </thead>
-                {% for item in restaurant_list %}
+                {% for restaurant in restaurant_list %}
                     {% for comment in restaurant.comment_set.all %}
                         <tr>
-                            <td>{{ item.name }}</td>
+                            <td>{{ restaurant.name }}</td>
                             <td>{{ comment.created }}</td>
                             <td>{{ comment.full_name }}</td>
                             <td>{{ comment.phone_number }}</td>
                             <td>{{ comment.email }}</td>
+                            <td>{{ comment.guest }}</td>
                             <td>{{ comment.content }}</td>            
                         </tr>
                     {% endfor %}

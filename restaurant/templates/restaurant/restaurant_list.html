@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load imagekit %}
 
 {% block content %}
 
@@ -8,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>Restaurant</th>
             <th>Area</th>
             <th>Live Capacity</th>
@@ -17,6 +19,13 @@
     <tbody>
         {% for item in restaurant_list %}
         <tr>
+            <td>
+                {% if item.image %}
+                    {% thumbnail "140x100" item.image -- class="align-self-center mr-3" %}
+                {% else %}
+                    <img src="{% static 'images/image01.jpg' %}" class="align-self-center mr-3" alt="..." width="140">
+                {% endif %}
+            </td>
             <td>
                 <h5>
                     <a href="{% url 'restaurant:detail' item.id %}" class="text-dark text-decoration-none">{{ item.name }}

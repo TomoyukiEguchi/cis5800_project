@@ -6,10 +6,16 @@
 <!-- Heading Row -->
     <div class="row align-items-center my-3">
         <div class="col-lg-7">
-            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/image01.jpg' %}" alt="" >
+            <div class="center-cropped"  style="height: 480px; position: relative; overflow: hidden;">
+                {% if restaurant_top.image %}
+                    <img src="{{ restaurant_top.image.url }}" width="640" class="img-fluid rounded border" style="position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+                {% else %}
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/image01.jpg' %}" alt="" >
+                {% endif %}
+            </div>
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-5">
+        <div class="col-lg-5 pl-3">
             <h1 class="font-weight-light">{{ restaurant_top.name }}</h1>
             <p class="text-muted"><small>{{ restaurant_top.area }} <span>&#183;</span> {{ restaurant_top.cuisine }}</small></p>
             <br>

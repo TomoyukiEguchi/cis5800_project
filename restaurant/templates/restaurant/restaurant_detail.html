@@ -6,13 +6,15 @@
 
 <div class="row my-3">
     <div class="col-lg-7">
-        {% if object.image %}
-            <img src="{{ object.detail_main.url }}" width="640" class="img-fluid rounded border">
-        {% else %}
-            <img src="{% static 'images/image01.jpg' %}" width="640" class="img-fluid rounded border">
-        {% endif %}
+        <div class="center-cropped" style="height: 480px; position: relative; overflow: hidden;">
+            {% if object.image %}
+                <img src="{{ object.image.url }}" width="640" class="img-fluid rounded border" style="position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+            {% else %}
+                <img src="{% static 'images/image01.jpg' %}" width="640" class="img-fluid rounded border">
+            {% endif %}
+        </div>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-5 pl-3 mt-4">
         <h1 class="font-weight-light mt-1">{{ object.name }}</h1>
         <p class="text-muted"><small>{{ object.area }} <span>&#183;</span> {{ object.cuisine }}</small></p>
         <p class="mb-0">{{ object.address1 }} {{ object.address2|default_if_none:"" }}</p>

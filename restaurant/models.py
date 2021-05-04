@@ -1,5 +1,8 @@
 from django.db import models
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 from django.contrib.auth.models import User
 
 
@@ -49,6 +52,15 @@ class Restaurant(models.Model):
     city = models.CharField(max_length=50, blank=True, null=True)
     state = models.CharField(max_length=50, blank=True, null=True, choices=state)
     zipcode = models.CharField(max_length=50, blank=True, null=True)
+
+    image = models.ImageField(upload_to="images/uploaded/", default=None, null=True, blank=True)
+
+    detail_main = ImageSpecField(
+        source="image",
+        processors=[ResizeToFill(640, 480)],
+        format="jpeg",
+        options={"quality": 80}
+    )
 
     facebook = models.CharField(max_length=50, blank=True, null=True)
     instagram = models.CharField(max_length=50, blank=True, null=True)

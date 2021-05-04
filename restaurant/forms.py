@@ -7,7 +7,7 @@ class RestaurantForm(forms.ModelForm):
 
     class Meta:
         model = Restaurant
-        fields = ['name', 'area', 'cuisine', 'address1', 'address2', 'city', 'state', 'zipcode', "user", ]
+        fields = ['name', 'area', 'cuisine', 'address1', 'address2', 'city', 'state', 'zipcode', "image", "user", ]
 
         widgets = {
             "user": forms.HiddenInput()

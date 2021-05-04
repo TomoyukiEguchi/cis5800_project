@@ -8,6 +8,7 @@ from phone_field import PhoneField
 
 guest = (
     ('', 'Choose...'),
+    ('1', '1 Guest'),
     ('2', '2 Guests'),
     ('3', '3 Guests'),
     ('4', '4 Guests'),
