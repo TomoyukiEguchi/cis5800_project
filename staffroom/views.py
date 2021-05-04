@@ -56,7 +56,7 @@ class RestaurantCreateView(LoginRequiredMixin, CreateView):
 
 class RestaurantUpdateView(LoginRequiredMixin, UpdateView):
     model = Restaurant
-    fields = ["name", "area", "cuisine", "live_capacity", "address1", "address2", "city", "state", "zipcode", "image"]
+    fields = ["name", "area", "cuisine", "live_capacity", "address1", "address2", "city", "state", "zipcode", "image", ]
     success_url = reverse_lazy("staffroom:index")
     # def get_success_url(self):
     #     pk = self.kwargs.get("pk")

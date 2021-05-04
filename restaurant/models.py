@@ -54,7 +54,6 @@ class Restaurant(models.Model):
     zipcode = models.CharField(max_length=50, blank=True, null=True)
 
     image = models.ImageField(upload_to="images/uploaded/", default=None, null=True, blank=True)
-
     detail_main = ImageSpecField(
         source="image",
         processors=[ResizeToFill(640, 480)],

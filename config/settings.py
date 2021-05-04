@@ -46,11 +46,10 @@ INSTALLED_APPS = [
     'staffroom',
 
     'crispy_forms',
-    'imagekit',
-
     'phone_field',
     'multi_email_field',
     'easy_maps',
+    'imagekit',
 
 ]
 
